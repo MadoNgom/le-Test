@@ -1,0 +1,75 @@
+/* SUPPRIMER LES MARGES PAR DEFAUT */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#no-wrap {
+	white-space: nowrap;
+}
+/* ALIGNER LES ELEMENTS AU CENTRE */
+.hero {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+.form {
+	position: relative;
+	box-shadow: 0 4px 8px rgb(0 0 0 / 0.3);
+}
+.form-input {
+	outline: none;
+	width: 100%;
+	border-radius: 5px;
+	border: 0.1px solid #333;
+	padding: 0.3rem;
+}
+input::placeholder {
+	font-size: 0.85rem;
+}
+.input {
+	position: relative;
+}
+.input[type='password'] {
+	position: relative;
+}
+.eye {
+	position: absolute;
+	right: 15px;
+	transform: translate(0, -50%);
+	top: 50%;
+	font-size: 15px;
+	color: #5b595f;
+}
+.small-text {
+	color: #5b595f;
+	font-size: 0.88rem;
+}
+.user-icon {
+	font-size: 20px;
+	padding: 1rem;
+	position: absolute;
+	top: -20px;
+	left: 20px;
+	z-index: 1;
+	background-color: #fff;
+	box-shadow: 0 2px 3px rgb(0 0 0 / 0.3);
+	border-radius: 2px;
+}
+
+.btn-blue {
+	background-color: #2e497f;
+	color: #fff;
+	text-decoration: none;
+	padding: 0.5rem;
+	transition: 0.5s;
+}
+.btn-blue:hover {
+	color: black;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 5px;
+}

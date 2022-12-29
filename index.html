@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Formulaire d'inscription</title>
+		<!-- LIEN POUR UTILISER BOOSTRAP -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+		<!-- FONT AWSOME CDN LIEN POUR UTILSER LES ICONS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+		/>
+
+		<!-- LIEN POUR RELIER LE FICHIER CSS -->
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<!-- DEBUT DE LA SECTION -->
+		<section class="hero">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<form action="" class="form p-5">
+							<span class="user-icon">
+								<i class="fa-solid fa-user-pen"></i>
+							</span>
+							<h3>Inscrivez-vous </h3>
+							<div class="input-group mb-3">
+								<input
+									type="text"
+									class="form-input"
+									placeholder="Nom complet"
+								/>
+							</div>
+							<div class="input-group mb-3">
+								<input
+									type="email"
+									name="email"
+									id="email"
+									placeholder=" Addresse email "
+									class="form-input"
+									required
+								/>
+							</div>
+							<div class="input-group mb-3">
+								<input
+									type="password"
+									name="password"
+									id="password"
+									placeholder=" Mot de pass"
+									required
+									class="form-input input"
+								/>
+								<span class="eye">
+									<i class="fa-solid fa-eye"></i>
+								</span>
+							</div>
+							<p class="small-text">
+								le mot de contenir maximum 10 caractère dont 2 caractère
+								spécial
+							</p>
+							<div class="input-group mb-3">
+								<input
+									type="password"
+									name="password"
+									placeholder="Confirmer mot de pass"
+									required
+									class="form-input"
+								/>
+								<span class="eye">
+									<i class="fa-solid fa-eye"></i>
+								</span>
+							</div>
+							<div
+								class="d-flex justify-content-between align-items-center"
+							>
+								<label for="checkbox">
+									<input
+										type="checkbox"
+										value="souvenir"
+										id="no-wrap"
+									/>
+									se souvenir de moi
+								</label>
+								<button class="btn btn-dark">s'inscrire</button>
+							</div>
+							<!-- BUTTONS -->
+							<div
+								class="buttons d-flex justify-content-center align-items-center mt-4 flex-column"
+							>
+								<a href="#" class="btn-blue mb-3">
+									<i class="fa-brands fa-facebook-f"></i> s'inscrire
+									avec facebook</a
+								>
+								<a href="#" class="btn btn-primary btn-group-sm"
+									><i class="fa-brands fa-google"></i> s'inscrire avec
+									Google</a
+								>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-6">
+						<img
+							src="./photo.jpg"
+							alt="image qui illustre un Formulaire d'inscription"
+							class="img-fluid d-none d-lg-flex"
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- FIN DE LA SECTION -->
+		<!-- JAVASCRIPT BANDLER POUR LA VALIDATION DU FORMULAIRE  -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.j"></script>
+	</body>
+</html>
