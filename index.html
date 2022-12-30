@@ -62,10 +62,8 @@
 									<i class="fa-solid fa-eye"></i>
 								</span>
 							</div>
-							<p class="small-text">
-								le mot de contenir maximum 10 caractère dont 2 caractère
-								spécial
-							</p>
+							<!-- text à ajouter de facon dynamique avec javascipt -->
+							<div class="small-text text-danger mb-3"> </div>
 							<div class="input-group mb-3">
 								<input
 									type="password"
@@ -89,7 +87,9 @@
 									/>
 									se souvenir de moi
 								</label>
-								<button class="btn btn-dark">s'inscrire</button>
+								<button class="btn btn-dark submit-btn"
+									>s'inscrire</button
+								>
 							</div>
 							<!-- BUTTONS -->
 							<div
@@ -117,7 +117,23 @@
 			</div>
 		</section>
 		<!-- FIN DE LA SECTION -->
-		<!-- JAVASCRIPT BANDLER POUR LA VALIDATION DU FORMULAIRE  -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.j"></script>
+		<!-- JAVASCRIPT POUR LA VALIDATION DU FORMULAIRE  -->
+		<script>
+			const submitBtn = document.querySelector('.btn-dark');
+			let text = document.querySelector('.small-text');
+			const password = document.getElementById('password');
+			submitBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				// verifier la valeur que l'utilisateur à saisie  et determiner si sa longueur est inférieur  ou égale à 10 caractére et
+				let caractère = `@\!\?\%\-\&\-\=\<\>\.\,`;
+				if (
+					password.value.length <= 10 ||
+					password.value.includes(caractère) == 2
+				) {
+					text.innerHTML = `le mot de contenir maximum 10 caractère dont 2 caractère
+          	spécial`;
+				}
+			});
+		</script>
 	</body>
 </html>
