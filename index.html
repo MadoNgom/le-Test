@@ -25,7 +25,7 @@
 		<!-- DEBUT DE LA SECTION -->
 		<section class="hero">
 			<div class="container">
-				<div class="row">
+				<div class="row flex-column-reverse flex-lg-row">
 					<div class="col-md-6">
 						<form action="" class="form p-5">
 							<span class="user-icon">
@@ -35,7 +35,7 @@
 							<div class="input-group mb-3">
 								<input
 									type="text"
-									class="form-input"
+									class="form-control"
 									placeholder="Nom complet"
 								/>
 							</div>
@@ -45,7 +45,7 @@
 									name="email"
 									id="email"
 									placeholder=" Addresse email "
-									class="form-input"
+									class="form-control"
 									required
 								/>
 							</div>
@@ -56,11 +56,9 @@
 									id="password"
 									placeholder=" Mot de pass"
 									required
-									class="form-input input"
+									class="form-control"
 								/>
-								<span class="eye">
-									<i class="fa-solid fa-eye"></i>
-								</span>
+								<span class="eye"> </span>
 							</div>
 							<!-- text à ajouter de facon dynamique avec javascipt -->
 							<div class="small-text text-danger mb-3"> </div>
@@ -70,11 +68,9 @@
 									name="password"
 									placeholder="Confirmer mot de pass"
 									required
-									class="form-input"
+									class="form-control"
 								/>
-								<span class="eye">
-									<i class="fa-solid fa-eye"></i>
-								</span>
+								<span class="eye"> </span>
 							</div>
 							<div
 								class="d-flex justify-content-between align-items-center"
@@ -87,7 +83,7 @@
 									/>
 									se souvenir de moi
 								</label>
-								<button class="btn btn-dark submit-btn"
+								<button type="submit" class="btn btn-dark submit-btn"
 									>s'inscrire</button
 								>
 							</div>
@@ -110,7 +106,7 @@
 						<img
 							src="./photo.jpg"
 							alt="image qui illustre un Formulaire d'inscription"
-							class="img-fluid d-none d-lg-flex"
+							class="img-fluid"
 						/>
 					</div>
 				</div>
@@ -121,18 +117,38 @@
 		<script>
 			const submitBtn = document.querySelector('.btn-dark');
 			let text = document.querySelector('.small-text');
-			const password = document.getElementById('password');
+			const motDePass = document.getElementById('password');
+
 			submitBtn.addEventListener('click', (e) => {
+				// on evite que notre page se raffraichie quand on click sur le boutoon s'inscrire
 				e.preventDefault();
 				// verifier la valeur que l'utilisateur à saisie  et determiner si sa longueur est inférieur  ou égale à 10 caractére et contient 2 caractére spéciaux
 				let caractère = `@\!\?\%\-\&\-\=\<\>\.\,`;
 				if (
-					password.value.length <= 10 ||
-					password.value.includes(caractère) == 2
+					motDePass.value.length <= 10 ||
+					motDePass.value.includes(caractère) == 2
 				) {
-					text.innerHTML = `le mot de contenir maximum 10 caractère dont 2 caractère
+					text.innerHTML = `le mot de pass doit contenir maximum 10 caractère dont 2 caractères
           	spécial`;
 				}
+			});
+			// CODE QUI S'EXECUTE QUAND ON CLICK SUR L'ICON POUR VOIR LE MOT DE PASS SAISIE
+			const showBtns = document.querySelectorAll('.eye');
+			// console.log(showBtns);
+			const password = document.querySelectorAll('input[type = "password"]');
+
+			showBtns.forEach((eye) => {
+				eye.addEventListener('click', () => {
+					password.forEach((password) => {
+						if (password.type === 'password') {
+							password.setAttribute('type', 'text');
+							eye.classList.add('hide');
+						} else {
+							password.setAttribute('type', 'password');
+							eye.classList.remove('hide');
+						}
+					});
+				});
 			});
 		</script>
 	</body>

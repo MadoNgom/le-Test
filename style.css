@@ -6,9 +6,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-#no-wrap {
-	white-space: nowrap;
-}
+
 /* ALIGNER LES ELEMENTS AU CENTRE */
 .hero {
 	display: flex;
@@ -20,29 +18,30 @@
 	position: relative;
 	box-shadow: 0 4px 8px rgb(0 0 0 / 0.3);
 }
-.form-input {
-	outline: none;
-	width: 100%;
-	border-radius: 5px;
-	border: 0.1px solid #333;
-	padding: 0.3rem;
-}
+
 input::placeholder {
 	font-size: 0.85rem;
 }
-.input {
-	position: relative;
-}
+
 .input[type='password'] {
 	position: relative;
 }
 .eye {
 	position: absolute;
 	right: 15px;
-	transform: translate(0, -50%);
+	transform: translateY(-50%);
 	top: 50%;
 	font-size: 15px;
 	color: #5b595f;
+	cursor: pointer;
+}
+.eye::before {
+	content: '\f06e';
+	font-family: fontAwesome;
+}
+.eye.hide::before {
+	content: '\f070';
+	font-family: fontAwesome;
 }
 .small-text {
 	color: #5b595f;
@@ -54,7 +53,6 @@ input::placeholder {
 	position: absolute;
 	top: -20px;
 	left: 20px;
-	z-index: 1;
 	background-color: #fff;
 	box-shadow: 0 2px 3px rgb(0 0 0 / 0.3);
 	border-radius: 2px;
@@ -67,7 +65,8 @@ input::placeholder {
 	padding: 0.5rem;
 	transition: 0.5s;
 }
-.btn-blue:hover {
+.btn-blue:hover,
+.btn-primary:hover {
 	color: black;
 	background-color: #fff;
 	border: 1px solid #000;
