@@ -4,21 +4,21 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Formulaire d'inscription</title>
-		<!-- LIEN POUR UTILISER BOOSTRAP -->
+		<title>sign up form</title>
+		<!-- BOOSTRAP LINK -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous"
 		/>
-		<!-- FONT AWSOME CDN LIEN POUR UTILSER LES ICONS -->
+		<!-- FONT AWSOME CDN LINK -->
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 		/>
 
-		<!-- LIEN POUR RELIER LE FICHIER CSS -->
+		<!-- CSS LINK -->
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
@@ -27,50 +27,69 @@
 			<div class="container">
 				<div class="row flex-column-reverse flex-lg-row">
 					<div class="col-md-6">
-						<form action="" class="form p-5">
+						<form action="/" class="form p-5">
 							<span class="user-icon">
 								<i class="fa-solid fa-user-pen"></i>
 							</span>
-							<h3>Inscrivez-vous </h3>
-							<div class="input-group mb-3">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Nom complet"
-								/>
+							<h3 class="mb-3">Sign up </h3>
+							<div
+								class="d-block d-md-flex justify-content-between align-items-center"
+							>
+								<div class="input-form">
+									<input
+										type="text"
+										name="name"
+										id="name"
+										placeholder="First Name "
+										class="form-control"
+									/>
+									<div class="error"> </div>
+								</div>
+
+								<div class="input-form">
+									<input
+										type="text"
+										name="lastname"
+										id="lastname"
+										placeholder="Last Name "
+										class="form-control"
+									/>
+									<div class="error"> </div>
+								</div>
 							</div>
-							<div class="input-group mb-3">
+
+							<div class="input-form mt-2">
 								<input
 									type="email"
 									name="email"
 									id="email"
-									placeholder=" Addresse email "
+									placeholder="email "
 									class="form-control"
 									required
 								/>
+								<div class="error"> </div>
 							</div>
-							<div class="input-group mb-3">
+
+							<div class="input-form my-3">
 								<input
 									type="password"
 									name="password"
 									id="password"
-									placeholder=" Mot de pass"
-									required
-									class="form-control"
+									placeholder=" Password "
+									class="form-control input"
 								/>
-								<span class="eye"> </span>
+								<span class="toggle-password"></span>
+								<div class="error"></div>
 							</div>
-							<!-- text à ajouter de facon dynamique avec javascipt -->
-							<div class="small-text text-danger mb-3"> </div>
-							<div class="input-group mb-3">
+							<div class="input-form my-3">
 								<input
 									type="password"
 									name="password"
-									placeholder="Confirmer mot de pass"
-									required
-									class="form-control"
+									id="second-password"
+									placeholder=" confirm your password"
+									class="form-control input"
 								/>
-								<span class="eye"> </span>
+								<div class="error"></div>
 							</div>
 							<div
 								class="d-flex justify-content-between align-items-center"
@@ -81,10 +100,10 @@
 										value="souvenir"
 										id="no-wrap"
 									/>
-									se souvenir de moi
+									Remember me
 								</label>
 								<button type="submit" class="btn btn-dark submit-btn"
-									>s'inscrire</button
+									>sign up</button
 								>
 							</div>
 							<!-- BUTTONS -->
@@ -92,11 +111,11 @@
 								class="buttons d-flex justify-content-center align-items-center mt-4 flex-column"
 							>
 								<a href="#" class="btn-blue mb-3">
-									<i class="fa-brands fa-facebook-f"></i> s'inscrire
-									avec facebook</a
+									<i class="fa-brands fa-facebook-f"></i> sign up with
+									facebook</a
 								>
 								<a href="#" class="btn btn-primary btn-group-sm"
-									><i class="fa-brands fa-google"></i> s'inscrire avec
+									><i class="fa-brands fa-google"></i> sign up with
 									Google</a
 								>
 							</div>
@@ -112,44 +131,9 @@
 				</div>
 			</div>
 		</section>
-		<!-- FIN DE LA SECTION -->
-		<!-- JAVASCRIPT POUR LA VALIDATION DU FORMULAIRE  -->
-		<script>
-			const submitBtn = document.querySelector('.btn-dark');
-			let text = document.querySelector('.small-text');
-			const motDePass = document.getElementById('password');
+		<!-- END OF THE SECTION -->
 
-			submitBtn.addEventListener('click', (e) => {
-				// on evite que notre page se raffraichie quand on click sur le boutoon s'inscrire
-				e.preventDefault();
-				// verifier la valeur que l'utilisateur à saisie  et determiner si sa longueur est inférieur  ou égale à 10 caractére et contient 2 caractére spéciaux
-				let caractère = `@\!\?\%\-\&\-\=\<\>\.\,`;
-				if (
-					motDePass.value.length <= 10 ||
-					motDePass.value.includes(caractère) == 2
-				) {
-					text.innerHTML = `le mot de pass doit contenir maximum 10 caractère dont 2 caractères
-          	spécial`;
-				}
-			});
-			// CODE QUI S'EXECUTE QUAND ON CLICK SUR L'ICON POUR VOIR LE MOT DE PASS SAISIE
-			const showBtns = document.querySelectorAll('.eye');
-			// console.log(showBtns);
-			const password = document.querySelectorAll('input[type = "password"]');
-
-			showBtns.forEach((eye) => {
-				eye.addEventListener('click', () => {
-					password.forEach((password) => {
-						if (password.type === 'password') {
-							password.setAttribute('type', 'text');
-							eye.classList.add('hide');
-						} else {
-							password.setAttribute('type', 'password');
-							eye.classList.remove('hide');
-						}
-					});
-				});
-			});
-		</script>
+		<script src="./main.js"></script>
+		<!-- JAVASCRIPT LINK  -->
 	</body>
 </html>

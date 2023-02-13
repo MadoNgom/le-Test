@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 /* SUPPRIMER LES MARGES PAR DEFAUT */
 *,
 *::before,
@@ -8,45 +10,62 @@
 }
 
 /* ALIGNER LES ELEMENTS AU CENTRE */
-.hero {
+body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
+	font-family: 'Roboto', sans-serif;
 }
 .form {
 	position: relative;
 	box-shadow: 0 4px 8px rgb(0 0 0 / 0.3);
 }
-
-input::placeholder {
+input {
+	font-family: inherit;
+}
+.input-form input::placeholder {
 	font-size: 0.85rem;
 }
+.input-form.success input {
+	border-color: green;
+}
+.input-form.error input {
+	border-color: red;
+}
+.input-form .error {
+	color: #ff3860;
+	font-size: 9px;
+	margin-top: 5px;
+}
 
-.input[type='password'] {
+/* SHOW AND HIDE PASSWORD */
+.input-form {
+	font: inherit;
 	position: relative;
 }
-.eye {
+.input-form .toggle-password {
 	position: absolute;
-	right: 15px;
-	transform: translateY(-50%);
-	top: 50%;
-	font-size: 15px;
-	color: #5b595f;
+	right: 10px;
+	top: 8px;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.eye::before {
+.input-form .toggle-password::before {
 	content: '\f06e';
 	font-family: fontAwesome;
 }
-.eye.hide::before {
+.input-form .toggle-password.hide::before {
 	content: '\f070';
-	font-family: fontAwesome;
 }
-.small-text {
-	color: #5b595f;
-	font-size: 0.88rem;
+
+/* SMALL TEXT FOR VALIDATION */
+.successed {
+	border: 1px solid green;
 }
+
 .user-icon {
 	font-size: 20px;
 	padding: 1rem;
